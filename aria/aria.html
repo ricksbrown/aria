@@ -959,6 +959,102 @@
 			</table>
 		</div>
 		<hr/>
+		<div class="role" id="articlefeed">
+			<rdef>articlefeed</rdef>
+				<div class="role-description">
+					<p>A <rref>list</rref> of <rref>articles</rref> that may grow or shrink as the user navigates and reads the content. For example, an <code>articlefeed</code> could be used to present news stories or search results that continuously scroll by pulling new content into the page as the user reads.</p>
+					<p>An <code>articlefeed</code> enables screen readers or other assistive technologies to present content in their document browsing mode and reliably maintain their point of regard (reading cursor position). At the same time, it gives application authors means for both determining where the user is reading and updating the DOM without negatively impacting the functions of assistive technologies.</p>
+					<p>An articlefeed contains children whose role is <rref>article</rref>. Authors should use <pref>aria-labelledby</pref> or <pref>aria-label</pref> to give each <rref>article</rref> a useful name. Given the nature of most feeds, it is unlikely such names would be unique. In addition to a name, authors may suggest to screen readers which content from an article should be read automatically when the user navigates to it by referring to the content that should be read with <pref>aria-describedby</pref>.</p>
+					<p>Authors MAY use the <pref>aria-roledescription</pref> to clarify both the nature of the feed and its articles. For example, the <pref>aria-roledescription</pref> for a <code>articlefeed</code> might be &quot;News Feed&quot; and each <rref>article</rref> could have an <pref>aria-roledescription</pref> of &quot;story&quot;.</p>
+					<p>When <code>articles</code> are added or removed from either or both ends of an <code>articlefeed</code>, authors should:</p>
+					<ol>
+						<li>Set <sref>aria-busy</sref> <code>true</code> on the <code>articlefeed</code> element before DOM changes are made and set it <code>false</code> after they are complete. This tells assistive technologies to ignore changes to the accessibility tree inside the feed during the update process.</li>
+						<li>Specify an appropriate value for either <pref>aria-feedappends</pref> or <pref>aria-feedprepends</pref> or both. This enables assistive technologies to inform the user how many articles were added or removed and where in the list the changes were made.</li>
+					</ol>
+					<p>Authors should avoid inserting or removing content in the middle of a feed as this would make it more difficult for assistive technologies to maintain their reading position during and after an update.</p>
+					<p>Authors SHOULD make each <rref>article</rref> focusable by giving it a <code>tabindex</code> value of either -1 or 0.</p>
+					<p>Assistive technologies with a document browsing mode SHOULD provide mechanisms for moving their reading cursor among <code>articles</code>. When the reading cursor is moved to an <rref>article</rref>, the assistive technology SHOULD set focus on the <rref>article</rref> to inform the web application of the proximity of the user's reading cursor, enabling it to reliably determine if new content should be added to the feed or provide other relevant functionality. Assistive technologies may also find it helpful to provide users with a simple way of moving the reading cursor to the first element of content outside the end of the feed.</p>
+					 					<p>For the benefit of users who do not utilize an assistive technology that provides <code>articlefeed</code> navigation, authors may manage focus as described in managing focus or rely on user agent mechanisms for scrolling content with the keyboard. Authors should ensure that a focused article is visible.</p>
+					<p>Unless there is a definite and stable number of articles in the feed supply, authors should let the user agent manage <pref>aria-posinset</pref> and <pref>aria-setsize</pref>.</p>
+				</div>
+				<table class="role-features">
+				<caption>Characteristics:</caption>
+				<thead>
+					<tr>
+						<th scope="col">Characteristic</th>
+						<th scope="col">Value</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th class="role-abstract-head" scope="row">Is Abstract:</th>
+						<td class="role-abstract"> </td>
+					</tr>
+					<tr>
+						<th class="role-parent-head" scope="row">Superclass Role:</th>
+						<td class="role-parent"><rref>itemfeed</rref></td>
+					</tr>
+					<tr>
+						<th class="role-children-head" scope="row">Subclass Roles:</th>
+						<td class="role-children">Placeholder</td>
+					</tr>
+					<tr>
+						<th class="role-base-head" scope="row">Base Concept:</th>
+						<td class="role-base"> </td>
+					</tr>
+					<tr>
+						<th class="role-related-head" scope="row">Related Concepts:</th>
+						<td class="role-related"></td>
+					</tr>
+					<tr>
+						<th class="role-scope-head" scope="row">Required Context Role:</th>
+						<td class="role-scope"> </td>
+					</tr>
+					<tr>
+						<th class="role-mustcontain-head" scope="row">Required Owned Elements:</th>
+						<td class="role-mustcontain"><rref>article</rref></td>
+					</tr>
+					<tr>
+						<th class="role-required-properties-head">Required States and Properties:</th>
+						<td class="role-required-properties"> </td>
+					</tr>
+					<tr>
+						<th class="role-properties-head" scope="row">Supported States and Properties:</th>
+						<td class="role-properties"><a></a>
+						<ol>
+						<li><pref>aria-feedappends</pref></li>
+						<li><pref>aria-feedpreappends</pref></li>
+						</ol>
+						</td>
+					</tr>
+					<tr>
+						<th class="role-inherited-head" scope="row">Inherited States and Properties:</th>
+						<td class="role-inherited">Placeholder</td>
+					</tr>
+					<tr>
+						<th class="role-namefrom-head" scope="row">Name From:</th>
+						<td class="role-namefrom">author</td>
+					</tr>
+					<tr>
+						<th class="role-namerequired-head" scope="row">Accessible Name Required:</th>
+						<td class="role-namerequired">False</td>
+					</tr>
+					<tr>
+						<th class="role-namerequired-inherited-head" scope="row">Inherits Name Required:</th>
+						<td class="role-namerequired-inherited"> </td>
+					</tr>
+					<tr>
+						<th class="role-childpresentational-head" scope="row">Children Presentational:</th>
+						<td class="role-childpresentational"> </td>
+					</tr>
+					<tr>
+						<th class="role-presentational-inherited-head" scope="row">Inherits Presentational:</th>
+						<td class="role-presentational-inherited"> </td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<hr/>
 		<div class="role" id="banner">
 			<rdef>banner</rdef>
 			<div class="role-description">
@@ -2794,6 +2890,102 @@
 					<tr>
 						<th class="role-namerequired-head" scope="row">Accessible Name Required:</th>
 						<td class="role-namerequired"> </td>
+					</tr>
+					<tr>
+						<th class="role-namerequired-inherited-head" scope="row">Inherits Name Required:</th>
+						<td class="role-namerequired-inherited"> </td>
+					</tr>
+					<tr>
+						<th class="role-childpresentational-head" scope="row">Children Presentational:</th>
+						<td class="role-childpresentational"> </td>
+					</tr>
+					<tr>
+						<th class="role-presentational-inherited-head" scope="row">Inherits Presentational:</th>
+						<td class="role-presentational-inherited"> </td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<hr/>
+		<div class="role" id="itemfeed">
+			<rdef>itemfeed</rdef>
+				<div class="role-description">
+					<p>A <rref>list</rref> that may grow or shrink as the user navigates and reads the content. For example, in a social networking site, a <code>itemfeed</code> could be used to present suggested contacts. As the user reads through the list, it continuously scrolls and pulls in more names.</p>p>
+					<p>An <code>itemfeed</code> enables screen reader users to read a stream of rich content in a document browsing mode and reliably maintain their point of regard (reading cursor position). At the same time, it gives application authors means for both determining where the user is reading and updating the DOM without negatively impacting the functions of assistive technologies.</p>
+					<p>An itemfeed contains children whose role is <rref>listitem</rref>. 
+					<p>Authors MAY use the <pref>aria-roledescription</pref> to clarify the nature of the feed. For example, the <pref>aria-roledescription</pref> for a <code>itemfeed</code> might be &quot;Suggested names feed&quot;</p>
+					<p>When <code>listitems</code> are added or removed from either or both ends of an <code>itemfeed</code>, authors should:</p>
+					<ol>
+						<li>Set <sref>aria-busy</sref> <code>true</code> on the <code>itemfeed</code> element before DOM changes are made and set it <code>false</code> after they are complete. This tells assistive technologies to ignore changes to the accessibility tree inside the feed during the update process.</li>
+						<li>Specify an appropriate value for either <pref>aria-feedappends</pref> or <pref>aria-feedprepends</pref> or both. This enables assistive technologies to inform the user how many listitems were added or removed and where in the list the changes were made.</li>
+					</ol>
+					<p>Authors should avoid inserting or removing content in the middle of a feed as this would make it more difficult for assistive technologies to maintain their reading position during and after an update.</p>
+					<p>Authors SHOULD make each <rref>listitem</rref> focusable by giving it a <code>tabindex</code> value of either -1 or 0.</p>
+					<p>Assistive technologies with a document browsing mode SHOULD provide mechanisms for moving their reading cursor among <code>listitems</code>. When the reading cursor is moved to an <rref>listitem</rref>, the assistive technology SHOULD set focus on the <rref>listitem</rref> to inform the web application of the proximity of the user's reading cursor, enabling it to reliably determine if new content should be added to the feed or provide other relevant functionality. Assistive technologies may also find it helpful to provide users with a simple way of moving the reading cursor to the first element of content outside the end of the feed.</p>
+					 					<p>For the benefit of users who do not utilize an assistive technology that provides <code>itemfeed</code> navigation, authors may manage focus as described in managing focus or rely on user agent mechanisms for scrolling content with the keyboard. Authors should ensure that a focused listitem is visible.</p>
+					<p>Unless there is a definite and stable number of listitems in the feed supply, authors should let the user agent manage <pref>aria-posinset</pref> and <pref>aria-setsize</pref>.</p>
+				</div>
+				<table class="role-features">
+				<caption>Characteristics:</caption>
+				<thead>
+					<tr>
+						<th scope="col">Characteristic</th>
+						<th scope="col">Value</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th class="role-abstract-head" scope="row">Is Abstract:</th>
+						<td class="role-abstract"> </td>
+					</tr>
+					<tr>
+						<th class="role-parent-head" scope="row">Superclass Role:</th>
+						<td class="role-parent"><rref>list</rref></td>
+					</tr>
+					<tr>
+						<th class="role-children-head" scope="row">Subclass Roles:</th>
+						<td class="role-children">Placeholder</td>
+					</tr>
+					<tr>
+						<th class="role-base-head" scope="row">Base Concept:</th>
+						<td class="role-base"> </td>
+					</tr>
+					<tr>
+						<th class="role-related-head" scope="row">Related Concepts:</th>
+						<td class="role-related"></td>
+					</tr>
+					<tr>
+						<th class="role-scope-head" scope="row">Required Context Role:</th>
+						<td class="role-scope"> </td>
+					</tr>
+					<tr>
+						<th class="role-mustcontain-head" scope="row">Required Owned Elements:</th>
+						<td class="role-mustcontain"><rref>article</rref></td>
+					</tr>
+					<tr>
+						<th class="role-required-properties-head">Required States and Properties:</th>
+						<td class="role-required-properties"> </td>
+					</tr>
+					<tr>
+						<th class="role-properties-head" scope="row">Supported States and Properties:</th>
+						<td class="role-properties"><a></a>
+						<ol>
+						<li><pref>aria-feedappends</pref></li>
+						<li><pref>aria-feedpreappends</pref></li>
+						</ol>
+						</td>
+					</tr>
+					<tr>
+						<th class="role-inherited-head" scope="row">Inherited States and Properties:</th>
+						<td class="role-inherited">Placeholder</td>
+					</tr>
+					<tr>
+						<th class="role-namefrom-head" scope="row">Name From:</th>
+						<td class="role-namefrom">author</td>
+					</tr>
+					<tr>
+						<th class="role-namerequired-head" scope="row">Accessible Name Required:</th>
+						<td class="role-namerequired"> </td>
 					</tr>
 					<tr>
 						<th class="role-namerequired-inherited-head" scope="row">Inherits Name Required:</th>
