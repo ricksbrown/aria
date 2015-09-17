@@ -2383,8 +2383,8 @@
 			<rdef>gridcell</rdef>
 			<div class="role-description">
 				<p>A cell in a grid or treegrid.</p>
-				<p>Cells may be active, editable, and selectable. Cells may have <a>relationships</a> such as <pref>aria-controls</pref> to address the application of functional relationships.</p>
-				<p>If relevant headers cannot be determined from the <abbr title="Document Object Model">DOM</abbr> structure, authors SHOULD explicitly indicate which header cells are relevant to the cell by referencing <a>elements</a> with <a>role</a> <rref>rowheader</rref> or <rref>columnheader</rref> using the <pref>aria-describedby</pref> <a>attribute</a>.</p>
+				<p>Cells may be focusable, editable, and selectable. Cells may have <a>relationships</a> such as <pref>aria-controls</pref> to address the application of functional relationships.</p>
+				<p>If the author intends a cell to have a  row header, column header, or both, and if the relevant headers cannot be determined from the <abbr title="Document Object Model">DOM</abbr> structure, authors SHOULD explicitly indicate which header cells are relevant to the cell by referencing <a>elements</a> with <a>role</a> <rref>rowheader</rref> or <rref>columnheader</rref> using the <pref>aria-describedby</pref> <a>attribute</a>.</p>
 				<p>In a <rref>treegrid</rref>, authors MAY define cells as expandable by using the <sref>aria-expanded</sref> attribute. If the <sref>aria-expanded</sref> attribute is provided, it applies only to the individual cell. It is not a proxy for the container row, which also can be expanded. The main use case for providing this attribute on a cell is pivot table behavior.</p>
 				<p>Authors MUST ensure <a>elements</a> with <a>role</a> gridcell are contained in, or owned by, an element with the <a>role</a> <rref>row</rref>.</p>
 			</div>
