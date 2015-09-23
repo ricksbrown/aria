@@ -966,15 +966,15 @@
 					<p>An <code>articlefeed</code> enables screen readers or other assistive technologies to present content in their document browsing mode and reliably maintain their point of regard (reading cursor position). At the same time, it gives application authors means for both determining where the user is reading and updating the DOM without negatively impacting the functions of assistive technologies.</p>
 					<p>An articlefeed contains children whose role is <rref>article</rref>. Authors should use <pref>aria-labelledby</pref> or <pref>aria-label</pref> to give each <rref>article</rref> a useful name. Given the nature of most feeds, it is unlikely such names would be unique. In addition to a name, authors may suggest to screen readers which content from an article should be read automatically when the user navigates to it by referring to the content that should be read with <pref>aria-describedby</pref>.</p>
 					<p>Authors MAY use the <pref>aria-roledescription</pref> to clarify both the nature of the feed and its articles. For example, the <pref>aria-roledescription</pref> for a <code>articlefeed</code> might be &quot;News Feed&quot; and each <rref>article</rref> could have an <pref>aria-roledescription</pref> of &quot;story&quot;.</p>
-					<p>When <code>articles</code> are added or removed from either or both ends of an <code>articlefeed</code>, authors should:</p>
+					<p>When <code>articles</code> are added or removed from either or both ends of an <code>articlefeed</code>, authors SHOULD:</p>
 					<ol>
 						<li>Set <sref>aria-busy</sref> <code>true</code> on the <code>articlefeed</code> element before DOM changes are made and set it <code>false</code> after they are complete. This tells assistive technologies to ignore changes to the accessibility tree inside the feed during the update process.</li>
-						<li>Specify an appropriate value for either <pref>aria-feedappends</pref> or <pref>aria-feedprepends</pref> or both. This enables assistive technologies to inform the user how many articles were added or removed and where in the list the changes were made.</li>
+						<li>Specify an appropriate value for either <pref>aria-feedappendcount</pref> or <pref>aria-feedprependcount</pref> or both. This enables assistive technologies to inform the user how many articles were added or removed and where in the list the changes were made.</li>
 					</ol>
-					<p>Authors should avoid inserting or removing content in the middle of a feed as this would make it more difficult for assistive technologies to maintain their reading position during and after an update.</p>
-					<p>Authors SHOULD make each <rref>article</rref> focusable by giving it a <code>tabindex</code> value of either -1 or 0.</p>
+					<p>Authors SHOULD avoid inserting or removing <code>articles</code> in the middle of a feed because it could negatively impact the ability of assistive technologies to maintain their reading position after the feed update.</p>
+					<p>Authors SHOULD make each <rref>article</rref> focusable. For example, in HTML, each <code>article</code> element should have a <code>tabindex</code> value of either -1 or 0.</p>
 					<p>Assistive technologies with a document browsing mode SHOULD provide mechanisms for moving their reading cursor among <code>articles</code>. When the reading cursor is moved to an <rref>article</rref>, the assistive technology SHOULD set focus on the <rref>article</rref> to inform the web application of the proximity of the user's reading cursor, enabling it to reliably determine if new content should be added to the feed or provide other relevant functionality. Assistive technologies may also find it helpful to provide users with a simple way of moving the reading cursor to the first element of content outside the end of the feed.</p>
-					 					<p>For the benefit of users who do not utilize an assistive technology that provides <code>articlefeed</code> navigation, authors may manage focus as described in managing focus or rely on user agent mechanisms for scrolling content with the keyboard. Authors should ensure that a focused article is visible.</p>
+					 					<p>For the benefit of users who do not utilize an assistive technology that provides <code>articlefeed</code> navigation, authors MAY manage focus as described in <a href="#managingfocus">Managing Focus</a> or rely on user agent mechanisms for scrolling content with the keyboard. Authors should ensure that a focused article is visible.</p>
 					<p>Unless there is a definite and stable number of articles in the feed supply, authors should let the user agent manage <pref>aria-posinset</pref> and <pref>aria-setsize</pref>.</p>
 				</div>
 				<table class="role-features">
@@ -992,7 +992,7 @@
 					</tr>
 					<tr>
 						<th class="role-parent-head" scope="row">Superclass Role:</th>
-						<td class="role-parent"><rref>itemfeed</rref></td>
+						<td class="role-parent"><rref>list</rref></td>
 					</tr>
 					<tr>
 						<th class="role-children-head" scope="row">Subclass Roles:</th>
@@ -1022,8 +1022,8 @@
 						<th class="role-properties-head" scope="row">Supported States and Properties:</th>
 						<td class="role-properties">
 							<ul>
-								<li>aria-feedappends</li>
-								<li>aria-feedpreappends</li>
+								<li><pref>aria-feedappendcount</pref></li>
+								<li><pref>aria-feedprependcount</pref></li>
 							</ul>
 						</td>
 					</tr>
