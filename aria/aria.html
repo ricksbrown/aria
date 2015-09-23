@@ -9125,7 +9125,18 @@
 		<div class="property" id="aria-feedappendcount">
 			<pdef>aria-feedappendcount</pdef>
 			<div class="property-description">
-				<p>The number of items added to the end of a feed in the most recent feed update operation. A negative number means items were removed instead of added.</p>
+				<p>The number of items added to or removed from the end of a feed in the most recent feed update operation. A positive number means items were added; a negative number means items were removed . See related <pref>aria-feedprependcount</pref>.</p>
+				<p>When adding or removing items to or from a feed (a container element with role <rref>articlefeed</rref> or role <rref>itemfeed</rref>) , authors SHOULD:</p>
+				<ol>
+				<li>Immediately before DOM changes are going to be made to content inside the feed element, set <sref>aria-busy</sref> <code>true</code> on the feed element . This informs assistive technologies it is safe to ignore changes to the accessibility tree inside of the feed while changes are being made, improving assistive technology performance and preventing conditions that could cause unreliable movement of their reading cursors.</li>
+				<li>After the DOM changes inside the feed element are complete:
+				<ol>
+				<li>set the value of <code>aria-feedappendcount</code>.</li>
+				<li>If changes were also made to the beginning of the feed, set the value of <pref>aria-feedprependcount</pref>.</li>
+				<li>Important: Set <sref>aria-busy</sref> <code>false</code> to inform assistive technologies that the updates are complete and ready for consumption.</li>
+				</ol>
+				 </li>
+				</ol>
 			</div>
 			<table class="property-features">
 				<caption>Characteristics:</caption>
@@ -9163,6 +9174,59 @@
 			</table>
 		</div>
 		<hr/>
+		<div class="property" id="aria-feedprependcount">
+			<pdef>aria-feedprependcount</pdef>
+			<div class="property-description">
+				<p>The number of items added to or removed from the beginning of a feed in the most recent feed update operation. A positive number means items were added; a negative number means items were removed . See related <pref>aria-feedappendcount</pref>.</p>
+				<p>When adding or removing items to or from a feed (a container element with role <rref>articlefeed</rref> or role <rref>itemfeed</rref>) , authors SHOULD:</p>
+				<ol>
+				<li>Immediately before DOM changes are going to be made to content inside the feed element, set <sref>aria-busy</sref> <code>true</code> on the feed element . This informs assistive technologies it is safe to ignore changes to the accessibility tree inside of the feed while changes are being made, improving assistive technology performance and preventing conditions that could cause unreliable movement of their reading cursors.</li>
+				<li>After the DOM changes inside the feed element are complete:
+				<ol>
+				<li>set the value of <code>aria-feedprependcount</code>.</li>
+				<li>If changes were also made to the end of the feed, set the value of <pref>aria-feedappendcount</pref>.</li>
+				<li>Important: Set <sref>aria-busy</sref> <code>false</code> to inform assistive technologies that the updates are complete and ready for consumption.</li>
+				</ol>
+				 </li>
+				</ol>
+			</div>
+			<table class="property-features">
+				<caption>Characteristics:</caption>
+				<thead>
+					<tr>
+						<th scope="col">Characteristic</th>
+						<th scope="col">Value</th>
+					</tr>
+				</thead>
+				<tbody>
+				<!--
+					<tr>
+						<th class="property-related-head" scope="row">Related Concepts:</th>
+						<td class="property-related"><cite></cite></td>
+					</tr>
+					-->
+					<tr>
+						<th class="property-applicability-head" scope="row">Used in Roles:</th>
+						<td class="property-applicability">
+						<ul>
+						<li><rref>articlefeed</rref></li>
+						<li><rref>itemfeed</rref></li>
+						</ul>
+						</td>
+					</tr>
+					<tr>
+						<th class="property-descendants-head" scope="row">Inherits into Roles:</th>
+						<td class="property-descendants">Placeholder</td>
+					</tr>
+					<tr>
+						<th class="property-value-head" scope="row">Value:</th>
+						<td class="property-value"><a href="#valuetype_integer">integer</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<hr/>
+		
 		<div class="property" id="aria-flowto">
 			<pdef>aria-flowto</pdef>
 			<div class="property-description">
