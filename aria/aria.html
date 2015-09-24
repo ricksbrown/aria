@@ -884,7 +884,8 @@
 			<div class="role-description">
 				<p>A section of a page that consists of a composition that forms an independent part of a document, page, or site.</p>
 				<p>An article is not a navigational <a>landmark</a>, but may be nested to form a discussion where assistive technologies could pay attention to article nesting to assist the user in following the discussion. An article could be a forum post, a magazine or newspaper article, a web log entry, a user-submitted comment, or any other independent item of content. It is <em>independent</em> in that its contents could stand alone, for example in syndication. However, the <a>element</a> is still associated with its ancestors; for instance, contact information that applies to a parent body element still covers the article as well. When nesting articles, the child articles represent content that is related to the content of the parent article. For instance, a web log entry on a site that accepts user-submitted comments could represent the comments as articles nested within the article for the web log entry. Author, heading, date, or other information associated with an article does not apply to nested articles.</p>
-				<p>When the user navigates an element assigned the role of <rref>article</rref>, <a>assistive technologies</a> that typically intercept standard keyboard events SHOULD switch to document browsing mode, as opposed to passing keyboard events through to the web application. Assistive technologies MAY provide a feature allowing the user to navigate the hierarchy of any nested <rref>article</rref> elements.</p>
+				<p>When the user navigates an element assigned the role of <code>article</code>, <a>assistive technologies</a> that typically intercept standard keyboard events SHOULD switch to document browsing mode, as opposed to passing keyboard events through to the web application. Assistive technologies MAY provide a feature allowing the user to navigate the hierarchy of any nested <code>article</code> elements.</p>
+				<p>When a <code>article</code> is in the context of a <rref>articlefeed</rref>, the author MAY specify values for <pref>aria-posinset</pref> and <pref>aria-setsize</pref>.</p>
 			</div>
 			<table class="role-features">
 				<caption>Characteristics:</caption>
@@ -929,7 +930,12 @@
 					</tr>
 					<tr>
 						<th class="role-properties-head" scope="row">Supported States and Properties:</th>
-						<td class="role-properties"> </td>
+						<td class="role-properties">
+						<ul>
+						<li><pref>aria-posinset</pref></li>
+						<li><pref>aria-setsize</pref></li>
+						</ul>
+						</td>
 					</tr>
 					<tr>
 						<th class="role-inherited-head" scope="row">Inherited States and Properties:</th>
