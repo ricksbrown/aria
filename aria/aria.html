@@ -8301,8 +8301,9 @@
 		<div class="state" id="aria-busy">
 			<sdef>aria-busy</sdef>
 			<div class="state-description">
-				<p>Indicates that a <a>live region</a> or <a>widget</a> is being populated.</p>
-				<p>The default is that <sref>aria-busy</sref> is <code>false</code>. If authors know that multiple parts of the same element need to be loaded or modified, they can set <sref>aria-busy</sref> to <code>true</code> when the first part is loaded, and then set <sref>aria-busy</sref> to <code>false</code> when the last part is loaded. When a widget is missing <a href="#mustContain">required owned elements</a> due to script execution or loading, authors MUST mark a containing element with <sref>aria-busy</sref> equal to <code>true</code>. For example, until a section of a page is fully initialized and complete, an author could mark the document element as busy. If there is an error updating the element, authors MAY set the <sref>aria-invalid</sref> attribute to <code>true</code>.</p>
+				<p>Indicates that significant and potentially disruptive changes are being made to an element.</p>
+				<p>Some assistive technologies, such as screen readers, have a reading cursor that traverses a linearized reading view of a page that is dynamically built from the user agent accessibility tree. As the user agent reflects changes to the DOM in the accessibility tree, the assistive technology adds and removes content from the reading view and adjusts the position of the reading cursor in response to both the changes in the tree and commands issued by the user. The <code>aria-busy</code> state tells the assistive technology that a branch of the accessibility tree is subject to a significant number of changes and that it is safe to ignore change events in that branch of the tree during the busy state and process all changes made during that busy period as a single, atomic update to its reading view.</p>
+				<p>All elements have a default value of <code>aria-busy</code> of <code>false</code>. When authors make a set of DOM updates that include mutual dependencies in order for the accessibility tree to be in a conformant state, authors MUST mark a container element that wraps all such dependencies as <code>busy</code>. For example, when a widget is missing <a href="#mustContain">required owned elements</a> due to script execution, authors MUST mark an element containing the widget with <code>aria-busy</code> to <code>true</code>.</p>
 			</div>
 			<table class="state-features">
 				<caption>Characteristics:</caption>
@@ -8342,11 +8343,11 @@
 				<tbody>
 					<tr>
 						<th class="value-name" scope="row"><strong class="default">false (default)</strong>:</th>
-						<td class="value-description">There are no more expected updates for the element.</td>
+						<td class="value-description">There are no expected updates for the element.</td>
 					</tr>
 					<tr>
 						<th class="value-name" scope="row">true</th>
-						<td class="value-description">The element is still being updated.</td>
+						<td class="value-description">The element is being updated.</td>
 					</tr>
 				</tbody>
 			</table>
