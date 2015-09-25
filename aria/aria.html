@@ -9138,12 +9138,12 @@
 				<p>The number of items added to or removed from the end of a feed in the most recent feed update operation. A positive number means items were added; a negative number means items were removed . See related <pref>aria-feedprependcount</pref>.</p>
 				<p>When adding or removing items to or from a feed (a container element with role <rref>articlefeed</rref> or role <rref>itemfeed</rref>) , authors SHOULD:</p>
 				<ol>
-				<li>Immediately before DOM changes are going to be made to content inside the feed element, set <sref>aria-busy</sref> <code>true</code> on the feed element . This informs assistive technologies it is safe to ignore changes to the accessibility tree inside of the feed while changes are being made, improving assistive technology performance and preventing conditions that could cause unreliable movement of their reading cursors.</li>
+				<li>Immediately before DOM changes are going to be made to content inside the feed element, set <sref>aria-busy</sref> <code>true</code> on the feed element . This tells assistive technologies it is safe to defer processing of changes to the feed branch of the <a>accessibility tree</a> that occur outside the item the user is reading until updates to the feed are complete, improving assistive technology performance and preventing conditions that could cause unreliable movement of their reading cursors.</li>
 				<li>After the DOM changes inside the feed element are complete:
 				<ol>
 				<li>set the value of <code>aria-feedappendcount</code>.</li>
 				<li>If changes were also made to the beginning of the feed, set the value of <pref>aria-feedprependcount</pref>.</li>
-				<li>Important: Set <sref>aria-busy</sref> <code>false</code> to inform assistive technologies that the updates are complete and ready for consumption.</li>
+				<li><em>Important:</em> Set <sref>aria-busy</sref> <code>false</code> to inform assistive technologies that the updates are complete and ready for consumption.</li>
 				</ol>
 				 </li>
 				</ol>
@@ -9190,12 +9190,12 @@
 				<p>The number of items added to or removed from the beginning of a feed in the most recent feed update operation. A positive number means items were added; a negative number means items were removed . See related <pref>aria-feedappendcount</pref>.</p>
 				<p>When adding or removing items to or from a feed (a container element with role <rref>articlefeed</rref> or role <rref>itemfeed</rref>) , authors SHOULD:</p>
 				<ol>
-				<li>Immediately before DOM changes are going to be made to content inside the feed element, set <sref>aria-busy</sref> <code>true</code> on the feed element . This informs assistive technologies it is safe to ignore changes to the accessibility tree inside of the feed while changes are being made, improving assistive technology performance and preventing conditions that could cause unreliable movement of their reading cursors.</li>
+				<li>Immediately before DOM changes are going to be made to content inside the feed element, set <sref>aria-busy</sref> <code>true</code> on the feed element . This tells assistive technologies it is safe to defer processing of changes to the feed branch of the <a>accessibility tree</a> that occur outside the item the user is reading until updates to the feed are complete, improving assistive technology performance and preventing conditions that could cause unreliable movement of their reading cursors.</li>
 				<li>After the DOM changes inside the feed element are complete:
 				<ol>
 				<li>set the value of <code>aria-feedprependcount</code>.</li>
 				<li>If changes were also made to the end of the feed, set the value of <pref>aria-feedappendcount</pref>.</li>
-				<li>Important: Set <sref>aria-busy</sref> <code>false</code> to inform assistive technologies that the updates are complete and ready for consumption.</li>
+				<li><em>Important:</em> Set <sref>aria-busy</sref> <code>false</code> to inform assistive technologies that the updates are complete and ready for consumption.</li>
 				</ol>
 				 </li>
 				</ol>
