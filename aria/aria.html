@@ -977,7 +977,7 @@
 						<li>Prior to setting <sref>aria-busy</sref> <code>false</code>, specify an appropriate value for either <pref>aria-feedappendcount</pref> or <pref>aria-feedprependcount</pref> or both. This ensures assistive technologies have a robust way of maintaining the position of their reading cursors and gives them the option to inform their users how many articles were added or removed and where in the list the changes were made.</li>
 					</ol>
 					<p>Authors SHOULD avoid inserting or removing <code>articles</code> in the middle of a feed because it could negatively impact the ability of assistive technologies to maintain their reading position after the feed update.</p>
-					<p>Authors SHOULD make each <code>article</code> focusable and ensure that when an <code>article</code> receives focus that it scrolls into view. For example, in HTML, each <code>article</code> element should have a <code>tabindex</code> value of either -1 or 0.</p>
+					<p>Authors SHOULD make each <code>article</code> focusable and ensure that setting focus on an <code>article</code> scrolls it into view. For example, in HTML, each <code>article</code> element should have a <code>tabindex</code> value of either -1 or 0.</p>
 					<p>When a user moves the browse mode reading cursor of an assistive technology from one <code>article</code> to another, the assistive technology SHOULD set user agent focus on the <code>article</code> that contains the reading cursor. When the assistive technology's reading cursor crosses <code>article</code>  boundaries and the reading cursor lands on a focusable element inside the <code>article</code>, the assistive technology MAY set focus on that element in lieu of setting focus on the containing <code>article</code>.</p>
 					<p>To provide keyboard navigation among <code>articles</code> in a feed to users who do not utilize an assistive technology that has article navigation features, authors SHOULD provide keyboard commands that move focus among <code>articles</code>.</p>
 					<p>authors MAY apply <pref>aria-describedby</pref> to <code>article</code> elements in a feed to suggest to screen readers which elements to speak when the user navigates by <code>article</code>. Screen readers MAY provide users with a way to more quickly consume feed content by speaking the accessible description when navigating by article, ignoring repetitive or less important elements, such as embedded interaction widgets, that the author has left out of the description.</p>
@@ -2927,7 +2927,7 @@
 						<li>Prior to setting <sref>aria-busy</sref> <code>false</code>, specify an appropriate value for either <pref>aria-feedappendcount</pref> or <pref>aria-feedprependcount</pref> or both. This ensures assistive technologies have a robust way of maintaining the position of their reading cursors and gives them the option to inform their users how many items were added or removed and where in the list the changes were made.</li>
 					</ol>
 					<p>Authors should avoid inserting or removing items in the middle of a feed as this would make it more difficult for assistive technologies to maintain their reading position during and after an update.</p>
-					<p>Authors SHOULD make each <code>listitem</code> focusable and ensure that when an <code>listitem</code> receives focus that it scrolls into view. For example, in HTML, each <code>listitem</code> element should have a <code>tabindex</code> value of either -1 or 0.</p>
+					<p>Authors SHOULD make each <code>listitem</code> focusable and ensure that setting focus on a <code>listitem</code> scrolls it into view. For example, in HTML, each <code>listitem</code> element should have a <code>tabindex</code> value of either -1 or 0.</p>
 					<p>When a user moves the browse mode reading cursor of an assistive technology from one <code>listitem</code> to another, the assistive technology SHOULD set user agent focus on the <code>listitem</code> that contains the reading cursor. When the assistive technology's reading cursor crosses <code>listitem</code>  boundaries and the reading cursor lands on a focusable element inside a <code>listitem</code>, the assistive technology MAY set focus on that element in lieu of setting focus on the containing <code>listitem</code>.</p>
 					<p>To provide keyboard navigation among <code>listitems</code> in a feed to users who do not utilize an assistive technology that has article navigation features, authors SHOULD provide keyboard commands that move focus among <code>listitems</code>.</p>
 					 					<p>Authors MAY use the <pref>aria-roledescription</pref> to clarify the nature of the feed. For example, the <pref>aria-roledescription</pref> for a <code>itemfeed</code> might be &quot;Suggested names feed&quot;</p>
@@ -2979,8 +2979,8 @@
 						<th class="role-properties-head" scope="row">Supported States and Properties:</th>
 						<td class="role-properties">
 							<ul>
-								<li>aria-feedappendcount</li>
-								<li>aria-feedprependcount</li>
+								<li><pref>aria-feedappendcount</pref></li>
+								<li><pref>aria-feedprependcount</pref></li>
 							</ul>
 						</td>
 					</tr>
