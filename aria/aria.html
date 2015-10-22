@@ -791,18 +791,18 @@
 		<div class="role" id="application">
 			<rdef>application</rdef>
 			<div class="role-description">
-				<p>A <rref>structure</rref> containing focusable, interactive elements that must receive user input, such as keyboard or gesture events.</p>
+				<p>A <rref>structure</rref> containing focusable, interactive elements that require user input, such as keyboard or gesture events.</p>
 				<p>Some <a>user agents</a> and <a>assistive technologies</a> have a browse mode where standard input events, such as up and down arrow key events, are intercepted and used to control a reading cursor. This browse mode behavior prevents elements that do not have a <rref>widget</rref> role from receiving and using such keyboard and gesture  events to provide interactive functionality.</p> 		
 				<p>When there is a need to create an element with an interaction model that is not supported by any of the WAI-ARIA <rref>widget</rref> roles, authors MAY give that element role <code>application</code>. And, when a user navigates into an element with role <code>application</code>, <a>assistive technologies</a> that intercept standard input events SHOULD switch to a mode  that passes most or all standard input events through to the web application.</p>
-				<p>For example, an email application has a document and an application in it. The author would want to use typical application navigation mode to cycle through the list of emails, and much of this navigation would be defined by the application author. However, when reading an email message the content will appear in a region with a <rref>document</rref> <a>role</a> in order to use browsing navigation.</p>
+				<p>(NOTE: consider scrapping this example and coming up with a new one because there is no need to use the application role to create a e-mail app.) For example, an email application has a document and an application in it. The author would want to use typical application navigation mode to cycle through the list of emails, and much of this navigation would be defined by the application author. However, when reading an email message the content will appear in a region with a <rref>document</rref> <a>role</a> in order to use browsing navigation.</p>
 				<p> Because only the focusable elements contained in an application element are accessible to users of some assistive technologies, Authors MUST use one of the following techniques to ensure all non-decorative static text or image content inside an application is accessible:</p>
 				<ol>
 								<li>Associate the content with a focusable element using <pref>aria-labelledby</pref> or <pref>aria-describedby</pref>.</li>
 				<li>Place the content in a focusable element that has role <rref>document</rref> or <rref>article</rref>.</li>
 				</ol>
 				<!-- note: keep the following paragraphs synced with their counterparts in #document -->
-				<p>Authors SHOULD set the <a>role</a> of <code>application</code> on the <a>element</a> that encompasses the entire application. If the application role applies to the entire web page, authors SHOULD set the role of <code>application</code> on the root node for content, such as the <code>body</code> element in <abbr title="Hypertext Markup Language">HTML</abbr> or <code>svg</code> element in SVG.</p>
-				<p>Authors SHOULD provide a title or label for applications through one of the following methods:</p>
+				<p>(NOTE: consider scrapping this paragraph. It promotes a practice we do not want to perpetuate.) )Authors SHOULD set the <a>role</a> of <code>application</code> on the <a>element</a> that encompasses the entire application. If the application role applies to the entire web page, authors SHOULD set the role of <code>application</code> on the root node for content, such as the <code>body</code> element in <abbr title="Hypertext Markup Language">HTML</abbr> or <code>svg</code> element in SVG.</p>
+				<p>Authors MUST provide a title or label for elements with role <code>application</code> through one of the following methods:</p>
 				<ul>
 					<li>If the application includes the entire contents of the web page, use the host language feature for title or label, such as the <code>title</code> element in both <abbr title="Hypertext Markup Language">HTML</abbr> and <abbr title="Scalable Vector Graphics">SVG</abbr>. This has the effect of labeling the entire application.</li>
 					<li>Otherwise, provide a visible label referenced by the application using <pref>aria-labelledby</pref>.</li>
@@ -824,7 +824,7 @@
 					</tr>
 					<tr>
 						<th class="role-parent-head" scope="row">Superclass Role:</th>
-						<td class="role-parent"><rref>landmark</rref></td>
+						<td class="role-parent"><rref>structure</rref></td>
 					</tr>
 					<tr>
 						<th class="role-children-head" scope="row">Subclass Roles:</th>
