@@ -2114,19 +2114,15 @@
 		<div class="role" id="document">
 			<rdef>document</rdef>
 			<div class="role-description">
-				<p>A child element of a <rref>widget</rref> or <rref>application</rref> containing content that <a>assistive technology</a> users may want to browse in a reading mode. </p>
-				<p>When the user navigates an element assigned the role of <rref>document</rref>, <a>assistive technologies</a> that typically intercept standard keyboard events SHOULD switch to document browsing mode, as opposed to passing keyboard events through to the web application.</p>
-				<p>The <code>document</code> <a>role</a> informs <a>user agents</a> of the need to augment browser keyboard support in order to allow users to visit and read any content within the document region. 
-				In contrast, additional commands are not necessary for screen reader users to read text within a region with the <rref>application</rref> role, where if coded in an accessible manner, all text will be <a>semantically</a> associated with focusable <a>elements</a>. 
-				An important trait of documents is that they have text which is not associated with <a>widgets</a> or groups thereof.</p>
-				<!-- note: keep the following paragraphs synced with their counterparts in #application -->
+				<p>A focusable, child element of a <rref>widget</rref> or <rref>application</rref> containing content that <a>assistive technology</a> users may want to browse in a reading mode. </p>
+				<p>When <a>user agent</a> focus moves to an element assigned the role of <code>document</code>, <a>assistive technologies</a> having a reading mode for browsing static content MAY switch to that reading mode and intercept standard input events, such as Up or Down arrow keyboard events, to control the reading cursor. </p>
+				<p>For example, an <rref>application</rref> element contains some static rich text. The author can apply role <code>document</code> to the element containing the text and give it a tabindex of 0. When a screen reader user presses the tab key and places focus on the <code>document</code> element, the user will be able to read the text with the screen reader's reading cursor.</p>
+				<p><em>NOTE by MK:</em> I think we can delete the rest of the description. There is never a need to give the root node the role of document. And, there is no need to specify how a document can be labeled.</p>
 				<p>Authors SHOULD set the role of <code>document</code> on the element that encompasses the entire document. If the document role applies to the entire web page, authors SHOULD set the role of <code>document</code> on the root node for content, such as the <code>body</code> element in <abbr title="Hypertext Markup Language">HTML</abbr> or <code>svg</code> element in <abbr title="Scalable Vector Graphics">SVG</abbr>.</p>
-				<p>For example, an email application has a document and an application in it. The author would want to use typical application navigation mode to cycle through the list of emails, and much of this navigation would be defined by the application author. However, when reading an email message, the content will appear in a region with a <rref>document</rref> role in order to use browsing navigation.</p>
-				<p>Authors SHOULD provide a title or label for documents. Authors SHOULD use label text that suitable for use as a navigation preview or table-of-contents entry for the page section. Content authors SHOULD provide the label through one of the following methods:</p>
+				<p>Authors MAY provide a label for documents using one of the following techniques:</p>
 				<ul>
 					<li>If the document includes the entire contents of the web page, use the host language feature for title or label, such as the <code>title</code> element in both <abbr title="Hypertext Markup Language">HTML</abbr> and <abbr title="Scalable Vector Graphics">SVG</abbr>. This has the effect of labeling the entire document.</li>
-					<li>Otherwise, provide a visible label referenced by the document using <pref>aria-labelledby</pref>.</li>
-					<!-- note: keep the previous paragraphs synced with their counterparts in #application -->
+					<li>Using <pref>aria-labelledby</pref>.</li>
 				</ul>
 			</div>
 			<table class="role-features">
@@ -2184,7 +2180,7 @@
 					</tr>
 					<tr>
 						<th class="role-namerequired-head" scope="row">Accessible Name Required:</th>
-						<td class="role-namerequired">True</td>
+						<td class="role-namerequired">False</td>
 					</tr>
 					<tr>
 						<th class="role-namerequired-inherited-head" scope="row">Inherits Name Required:</th>
