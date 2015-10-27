@@ -1028,7 +1028,7 @@
 					</tr>
 					<tr>
 						<th class="role-properties-head" scope="row">Supported States and Properties:</th>
-						<td class="role-properties"> aria-feed </td>
+						<td class="role-properties"><pref>aria-feed</pref></td>
 					</tr>
 					<tr>
 						<th class="role-inherited-head" scope="row">Inherited States and Properties:</th>
@@ -3168,8 +3168,8 @@
 		<div class="role" id="list">
 			<rdef>list</rdef>
 			<div class="role-description">
-				<p>A group of non-interactive list items. See related <rref>listbox</rref>.</p>
-				<p>Lists contain children whose <a>role</a> is <rref>listitem</rref>, or elements whose <a>role</a> is <rref>group</rref> which in turn contains children whose <a>role</a> is <rref>listitem</rref>.</p>
+				<p>A <rref>section</rref> containing <rref>listitem</rref> elements. See related <rref>listbox</rref>.</p>
+				<p>Elements with role <code>list</code> contain children whose <a>role</a> is <rref>listitem</rref>, or elements whose <a>role</a> is <rref>group</rref> which in turn contains children whose <a>role</a> is <rref>listitem</rref>.</p>
 			</div>
 			<table class="role-features">
 				<caption>Characteristics:</caption>
@@ -3224,7 +3224,7 @@
 					</tr>
 					<tr>
 						<th class="role-properties-head" scope="row">Supported States and Properties:</th>
-						<td class="role-properties"> </td>
+						<td class="role-properties"><pref>aria-feed</pref></td>
 					</tr>
 					<tr>
 						<th class="role-inherited-head" scope="row">Inherited States and Properties:</th>
@@ -9118,8 +9118,10 @@
 			<pdef>aria-feed</pdef>
 			<div class="property-description">
 			<p>Indicates that child elements may be added or removed as users scroll within the element.</p>
+			<!-- 
 				<p>Immediately before DOM changes are going to be made to content inside the feed element, set <sref>aria-busy</sref> <code>true</code> on the feed element . This tells assistive technologies it is safe to defer processing of changes to the feed branch of the <a>accessibility tree</a> that occur outside the item the user is reading until updates to the feed are complete, improving assistive technology performance and preventing conditions that could cause unreliable movement of their reading cursors.</p>
 				<p>After the DOM changes inside the feed element are complete, set <sref>aria-busy</sref> <code>false</code> to inform assistive technologies that the updates are complete and ready for consumption.</p>
+				-->
 			</div>
 			<table class="property-features">
 				<caption>Characteristics:</caption>
