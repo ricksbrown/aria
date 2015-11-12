@@ -2106,16 +2106,9 @@
 		<div class="role" id="document">
 			<rdef>document</rdef>
 			<div class="role-description">
-				<p>A focusable, child element of a <rref>widget</rref> or <rref>application</rref> containing content that <a>assistive technology</a> users may want to browse in a reading mode. </p>
+				<p>An element containing content that <a>assistive technology</a> users may want to browse in a reading mode. </p>
 				<p>When <a>user agent</a> focus moves to an element assigned the role of <code>document</code>, <a>assistive technologies</a> having a reading mode for browsing static content MAY switch to that reading mode and intercept standard input events, such as Up or Down arrow keyboard events, to control the reading cursor. </p>
-				<p>For example, an <rref>application</rref> element contains some static rich text. The author can apply role <code>document</code> to the element containing the text and give it a tabindex of 0. When a screen reader user presses the tab key and places focus on the <code>document</code> element, the user will be able to read the text with the screen reader's reading cursor.</p>
-				<p><em>NOTE by MK:</em> I think we can delete the rest of the description. There is never a need to give the root node the role of document. And, there is no need to specify how a document can be labeled.</p>
-				<p>Authors SHOULD set the role of <code>document</code> on the element that encompasses the entire document. If the document role applies to the entire web page, authors SHOULD set the role of <code>document</code> on the root node for content, such as the <code>body</code> element in <abbr title="Hypertext Markup Language">HTML</abbr> or <code>svg</code> element in <abbr title="Scalable Vector Graphics">SVG</abbr>.</p>
-				<p>Authors MAY provide a label for documents using one of the following techniques:</p>
-				<ul>
-					<li>If the document includes the entire contents of the web page, use the host language feature for title or label, such as the <code>title</code> element in both <abbr title="Hypertext Markup Language">HTML</abbr> and <abbr title="Scalable Vector Graphics">SVG</abbr>. This has the effect of labeling the entire document.</li>
-					<li>Using <pref>aria-labelledby</pref>.</li>
-				</ul>
+				<p>Because <a>assistive technologies</a> that have a reading mode default to that mode for all elements except for those with either a <rref>widget</rref> or <rref>application</rref> role, the only circumstance where the <code>document</code> role is useful for changing assistive technology behavior is when the element with role <code>document</code>is A focusable, child element of a <rref>widget</rref> or <rref>application</rref>. For example, an <rref>application</rref> element contains some static rich text. The author can apply role <code>document</code> to the element containing the text and give it a tabindex of 0. When a screen reader user presses the tab key and places focus on the <code>document</code> element, the user will be able to read the text with the screen reader's reading cursor.</p>
 			</div>
 			<table class="role-features">
 				<caption>Characteristics:</caption>
